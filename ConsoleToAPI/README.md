@@ -20,10 +20,9 @@ To document and practice building real-world REST APIs using:
 
 | Date       | Description                                  |
 |------------|----------------------------------------------|
-| 2025-06-10 | Project created, added `EmployeeController`  |
-| 2025-06-11 | Integrated SQL Server and added `ProductController` |
-| 2025-06-12 | Worked with `FromQuery`, `FromRoute`, and `FromBody` |
-
+| 2025-06-08 | Project created, added `TestController`  |
+| 2025-06-09 | Project created, added `EmployeeController`  |
+| 2025-06-10 | Project created, added `AnimalController`  |
 _Update this table daily for progress tracking._
 
 ---
