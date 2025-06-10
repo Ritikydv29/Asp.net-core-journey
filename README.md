@@ -14,9 +14,5 @@ This repo documents my daily progress as I learn and build projects with **ASP.N
 
 ---
 
-## 📁 Repository Structure
-  WEBAPI/
-├── ConsoleToAPI/ # Daily learning project (active)
-├── .gitignore # Ignoring build/temp files
-└── README.md # ← You are here
+
 
