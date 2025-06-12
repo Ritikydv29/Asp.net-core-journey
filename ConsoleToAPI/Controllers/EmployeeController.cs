@@ -1,4 +1,5 @@
 ﻿using ConsoleToAPI.Models;
+using ConsoleToAPI.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConsoleToAPI.Controllers
@@ -7,12 +8,23 @@ namespace ConsoleToAPI.Controllers
     [Route("api/[controller]")]
     public class EmployeeController:ControllerBase
     {
-        [Route("get")]
-        public IEnumerable< EmployeesModel>GetAll()
+        private readonly IEmployeeRepository _employee;
+        public EmployeeController(IEmployeeRepository employee)
         {
-            return new List<EmployeesModel>{ 
-                new EmployeesModel() { id = 10, name = "Ritik", RollNo = 119 },
-                 new EmployeesModel() { id = 11, name = "Jay", RollNo = 120}};
+            _employee = employee;
+        }
+        [HttpPost("")]
+        public IActionResult insert(EmployeesModel employeee)
+        {
+            _employee.insert(employeee);
+            return Ok(employeee);
+        }
+
+        [HttpGet("get")]
+        public IActionResult get()
+        {
+
+            return Ok(_employee.GetAll());
         }
     }
 }
