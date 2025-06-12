@@ -6,6 +6,7 @@ namespace ConsoleToAPI.Models
     {
         public int id { get; set; }
         public string name { get; set; }
-        public  int RollNo { get; set; }
+        public  string Phone_No { get; set; }
+        public string Address { get; set; }
     }
 }
