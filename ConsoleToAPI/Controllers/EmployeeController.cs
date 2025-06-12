@@ -20,7 +20,7 @@ namespace ConsoleToAPI.Controllers
             return Ok(employeee);
         }
 
-        [HttpGet("get")]
+        [HttpGet("")]
         public IActionResult get()
         {
 
