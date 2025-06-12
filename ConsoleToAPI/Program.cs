@@ -1,4 +1,6 @@
-﻿namespace ConsoleToAPI
+﻿using ConsoleToAPI.Repositories;
+
+namespace ConsoleToAPI
 {
     internal class Program
     {
@@ -9,6 +11,7 @@
 
             //add services to it
             builder.Services.AddControllers();
+            builder.Services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
 
             //builds the app
             var app = builder.Build();
