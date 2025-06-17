@@ -1,4 +1,6 @@
-﻿using ConsoleToAPI.Models;
+﻿using ConsoleToAPI.DTO;
+using ConsoleToAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ConsoleToAPI.Repositories
 {
@@ -6,6 +8,13 @@ namespace ConsoleToAPI.Repositories
     {
         List<EmployeesModel>GetAll();
         void insert(EmployeesModel employee);
+        Task<Student> insertAsync(Student student);
+        Task<Teacher> insertTeacherAsync(Teacher teacher);
+        Task<Student> insertStudentAsync(Student student);
+        Task<Score> insertScoreAsync(Score score);
+        Task<List<Student>> GetAllAsync();
+        Task<List<Teacher>> GetAllTeacherAsync();
+        Task<Teacher>GetTeacherAsync(int id);
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using ConsoleToAPI.Repositories;
+﻿using ConsoleToAPI.Data;
+using ConsoleToAPI.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConsoleToAPI
 {
@@ -11,7 +13,8 @@ namespace ConsoleToAPI
 
             //add services to it
             builder.Services.AddControllers();
-            builder.Services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
+            builder.Services.AddDbContext<StudentContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("StudentDB")));
+            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             //builds the app
             var app = builder.Build();
