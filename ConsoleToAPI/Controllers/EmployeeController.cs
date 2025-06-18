@@ -120,10 +120,10 @@ namespace ConsoleToAPI.Controllers
 
         }
 
-        [HttpGet("student/{id}")]
-        public async Task<ActionResult<List<GetStudentScore>>> GetstudentById([FromRoute] int id)
+        [HttpGet("student/{i}")]
+        public async Task<ActionResult<List<GetStudentScore>>> GetstudentById([FromRoute] int i)
         {
-            var records = await _employee.GetStudentScoreAsync(id);
+            var records = await _employee.GetStudentScoreAsync(i);
             return Ok(records);
 
         }
