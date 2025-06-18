@@ -92,5 +92,40 @@ namespace ConsoleToAPI.Controllers
             return Created("", student);
 
         }
+
+        [HttpGet("students/{flag}")]
+        public async Task<ActionResult<List<StudentInfo>>> GetStudents([FromRoute]int flag)
+        {
+            var records = await _employee.GetAllStudentDataAsync(flag);
+            return Ok(records);
+
+        }
+
+
+        [HttpGet("Average/{flag}")]
+        public async Task<ActionResult<List<AverageMarksByTeacher>>> GetAverage([FromRoute] int flag)
+        {
+            var records = await _employee.GetAverageAsync(flag);
+            return Ok(records);
+
+        }
+
+        [HttpPost("S")]
+        public async Task<ActionResult> InsertScoreBySP([FromBody] Score score)
+        {
+
+            var result = await _employee.insertScorebyProcedureAsync(score);
+            if (result == 0) throw new Exception("Cannot Insert Marks greater than 100");
+            return Created("", score);
+
+        }
+
+        [HttpGet("student/{id}")]
+        public async Task<ActionResult<List<GetStudentScore>>> GetstudentById([FromRoute] int id)
+        {
+            var records = await _employee.GetStudentScoreAsync(id);
+            return Ok(records);
+
+        }
     }
 }
