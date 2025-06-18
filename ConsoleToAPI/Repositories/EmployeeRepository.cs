@@ -118,7 +118,7 @@ namespace ConsoleToAPI.Repositories
         }
 
         public async Task<List<GetStudentScore>> GetStudentScoreAsync(int id){
-            return await _studentContext.Database.SqlQuery<GetStudentScore>($"exec GetStudentInfo {id}").ToListAsync();
+            return await _studentContext.Database.SqlQuery<GetStudentScore>($"exec GetStudentScores {id}").ToListAsync();
         }
 
     }

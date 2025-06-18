@@ -115,7 +115,7 @@ namespace ConsoleToAPI.Controllers
         {
 
             var result = await _employee.insertScorebyProcedureAsync(score);
-            if (result == 0) throw new Exception("Cannot Insert Marks greater than 100");
+            if (result == 0) return Ok("Cannot Insert Marks greater than 100");
             return Created("", score);
 
         }
