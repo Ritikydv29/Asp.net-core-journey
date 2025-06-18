@@ -16,5 +16,9 @@ namespace ConsoleToAPI.Repositories
         Task<List<Teacher>> GetAllTeacherAsync();
         Task<Teacher>GetTeacherAsync(int id);
 
+        Task<List<StudentInfo>> GetAllStudentDataAsync(int flag);
+        Task<List<AverageMarksByTeacher>> GetAverageAsync(int flag);
+        Task<int> insertScorebyProcedureAsync(Score score);
+        Task<List<GetStudentScore>> GetStudentScoreAsync(int id);
     }
 }
