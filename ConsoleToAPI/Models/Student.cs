@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace ConsoleToAPI
+namespace ConsoleToAPI.Models
 {
     public class Student
     {

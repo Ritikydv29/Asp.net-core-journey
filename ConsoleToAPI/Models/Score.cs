@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ConsoleToAPI
+namespace ConsoleToAPI.Models
 {
     public class Score
     {

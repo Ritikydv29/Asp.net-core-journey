@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ConsoleToAPI.Models;
 
-namespace ConsoleToAPI
+namespace ConsoleToAPI.Models
 {
     public class Teacher
     {
