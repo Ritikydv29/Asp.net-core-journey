@@ -115,7 +115,7 @@ namespace ConsoleToAPI.Controllers
         {
 
             var result = await _employee.insertScorebyProcedureAsync(score);
-            if (result == 0) return Ok("Cannot Insert Marks greater than 100");
+            if (result == -1) return Ok("Cannot Insert Marks greater than 100  OR Student ID does not Exist OR Teacher id does not Exist ");
             return Created("", score);
 
         }
@@ -124,6 +124,14 @@ namespace ConsoleToAPI.Controllers
         public async Task<ActionResult<List<GetStudentScore>>> GetstudentById([FromRoute] int i)
         {
             var records = await _employee.GetStudentScoreAsync(i);
+            return Ok(records);
+
+        }
+
+        [HttpGet("Teachers/top")]
+        public async Task<ActionResult<List<TopStudentsPerTeacher>>> TopStudentsPerTeacherAsync()
+        {
+            var records = await _employee.TopStudentsPerTeacherAsync();
             return Ok(records);
 
         }

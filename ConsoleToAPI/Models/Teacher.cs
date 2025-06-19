@@ -12,4 +12,13 @@ namespace ConsoleToAPI.Models
         public List<Score> ? Scores { get; set; }
 
     }
+    public class TopStudentsPerTeacher {
+        public string TeacherName { get; set; }
+        public string StudentName { get; set; }
+
+        public int AverageMarks {  get; set; }
+
+    }
+
+
 }

@@ -105,14 +105,13 @@ namespace ConsoleToAPI.Repositories
             int Marks = score.Marks;
             int? Teacher_Id = score.Teacher_Id;
             int? Student_Id = score.Student_Id;
-            if (Marks > 100) return 0;
 
-            await _studentContext.Database.
+            var res = await _studentContext.Database.
                       ExecuteSqlInterpolatedAsync($"EXEC InsertScore {date},{Subject},{Marks},{Teacher_Id},{Student_Id}");
 
             //await _studentContext.SaveChangesAsync();
 
-            return 1;
+            return res;
 
 
         }
@@ -120,6 +119,9 @@ namespace ConsoleToAPI.Repositories
         public async Task<List<GetStudentScore>> GetStudentScoreAsync(int id){
             return await _studentContext.Database.SqlQuery<GetStudentScore>($"exec GetStudentScores {id}").ToListAsync();
         }
-
+        public async Task<List<TopStudentsPerTeacher>> TopStudentsPerTeacherAsync()
+        {
+            return await _studentContext.Database.SqlQuery<TopStudentsPerTeacher>($"exec TopStudentsPerTeacher").ToListAsync();
+        }
     }
 }
