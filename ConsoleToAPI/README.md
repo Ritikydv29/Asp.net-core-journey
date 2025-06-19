@@ -30,6 +30,7 @@ To document and practice building real-world REST APIs using:
 | 2025-06-15 | Added method to fetch student scores using stored procedure  |
 | 2025-06-16 | Wrote queries to get highest scoring subjects per student    |
 | 2025-06-17 | Added average score by teacher query + flag-based SP logic   |
+| 2025-06-18 | Created a a procedure TopStudentsPerTeacher to return top 3 students (by average marks) for each teacher and integerated it with the API controller|
 
 
 ---
