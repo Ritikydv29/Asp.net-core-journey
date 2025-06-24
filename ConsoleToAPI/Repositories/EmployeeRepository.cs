@@ -48,17 +48,22 @@ namespace ConsoleToAPI.Repositories
             return teacher;
 
         }
-        public async Task<List<Teacher>> GetAllTeacherAsync()
+        public async Task<List<TeacherInfo>> GetAllTeacherAsync()
         {
             var records = await _studentContext.Teacher
         .Include(t => t.Students)
         .ThenInclude(s => s.Scores)
         .ToListAsync();
 
+            var teacherInfos = records.Select(t => new TeacherInfo
+            {
+                Teacher_Id = t.Teacher_Id,
+                Name = t.Name,
+                Students = t.Students 
+            }).ToList();
 
 
-
-            return records;
+            return teacherInfos;
         }
         public async Task<Teacher> GetTeacherAsync([FromRoute] int id)
         {

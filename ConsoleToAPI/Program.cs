@@ -16,12 +16,27 @@ namespace ConsoleToAPI
             builder.Services.AddDbContext<StudentContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("StudentDB")));
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
+            //adding cors
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin()
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
+           
+
+
             //builds the app
             var app = builder.Build();
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("AllowAll");
             app.UseRouting();
 
             app.UseHttpsRedirection();

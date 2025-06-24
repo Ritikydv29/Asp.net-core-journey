@@ -19,6 +19,16 @@ namespace ConsoleToAPI.Models
         public int AverageMarks {  get; set; }
 
     }
+    public class TeacherInfo
+    {
+
+        [Key] public int Teacher_Id { get; set; }
+        public string Name { get; set; }
+
+        public List<Student>? Students { get; set; }
+
+
+    }
 
 
 }

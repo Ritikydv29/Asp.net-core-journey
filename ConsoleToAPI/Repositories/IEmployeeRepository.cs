@@ -13,7 +13,7 @@ namespace ConsoleToAPI.Repositories
         Task<Student> insertStudentAsync(Student student);
         Task<Score> insertScoreAsync(Score score);
         Task<List<Student>> GetAllAsync();
-        Task<List<Teacher>> GetAllTeacherAsync();
+        Task<List<TeacherInfo>> GetAllTeacherAsync();
         Task<Teacher>GetTeacherAsync(int id);
 
         Task<List<StudentInfo>> GetAllStudentDataAsync(int flag);

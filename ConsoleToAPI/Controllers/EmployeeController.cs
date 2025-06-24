@@ -38,7 +38,7 @@ namespace ConsoleToAPI.Controllers
 
         }
         [HttpGet("teachers")]
-        public async Task<ActionResult<List<Teacher>>> GetTeachers()
+        public async Task<ActionResult<List<TeacherInfo>>> GetTeachers()
         {
             var records=await _employee.GetAllTeacherAsync();
 
@@ -47,7 +47,7 @@ namespace ConsoleToAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TeacherDTO>> GetTeacherbyId([FromRoute]int id)
+        public async Task<ActionResult<TeacherDTO>> GetTeacherbyId([FromRoute] int id)
         {
             var teacher = await _employee.GetTeacherAsync(id);
             if (teacher == null) return NotFound("No Record Found");
@@ -68,11 +68,12 @@ namespace ConsoleToAPI.Controllers
                 }).ToList()
             };
 
-          
-       
+
+
             return Ok(teacherDTO);
 
         }
+
         [HttpPost("score")]
         public async Task<ActionResult<Score>> insertScoreAsync([FromBody]Score score)
         {
