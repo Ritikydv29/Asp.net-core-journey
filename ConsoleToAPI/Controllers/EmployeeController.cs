@@ -136,5 +136,12 @@ namespace ConsoleToAPI.Controllers
             return Ok(records);
 
         }
+
+        [HttpGet("Students")]
+        public async Task<ActionResult<List<GetAllStudents>>> GetAllStudents()
+        {
+            var records = await _employee.GetAllStudents();
+            return Ok(records);
+        }
     }
 }

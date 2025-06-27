@@ -128,5 +128,19 @@ namespace ConsoleToAPI.Repositories
         {
             return await _studentContext.Database.SqlQuery<TopStudentsPerTeacher>($"exec TopStudentsPerTeacher").ToListAsync();
         }
+        public async Task<List<GetAllStudents>> GetAllStudents()
+        {
+            var records = await _studentContext.Student.ToListAsync();
+
+            var StudentInfo = records.Select(S => new GetAllStudents
+            {
+               Student_Id = S.Student_Id,
+                Name = S.name,
+            
+            }).ToList();
+
+
+            return StudentInfo;
+        }
     }
 }

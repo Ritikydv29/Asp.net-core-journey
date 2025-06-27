@@ -21,6 +21,7 @@ namespace ConsoleToAPI.Repositories
         Task<int> insertScorebyProcedureAsync(Score score);
         Task<List<GetStudentScore>> GetStudentScoreAsync(int id);
         Task<List<TopStudentsPerTeacher>> TopStudentsPerTeacherAsync();
-        
+
+        Task<List<GetAllStudents>> GetAllStudents();
     }  
 }
