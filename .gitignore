@@ -9,7 +9,10 @@ obj/
 *.sln.docstates
 appsettings.json
 
-
+# Node.js related (if using npm/yarn)
+node_modules/
+package-lock.json
+yarn.lock
 # VS Code
 .vscode/
 
